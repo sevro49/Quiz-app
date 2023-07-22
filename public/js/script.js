@@ -1,6 +1,9 @@
 const btnStart = document.querySelector(".btn_start");
 const quizBox = document.querySelector(".quiz_box");
 const btnClose = document.querySelector(".btn_close")
+const questionText = document.querySelector(".question_text");
+const optionList = document.querySelector(".option_list");
+const btnNext = document.querySelector(".next_btn");
 
 function Question(questionText, questionAnswers, correctAnswer) {
     this.questionText = questionText;
@@ -14,7 +17,7 @@ Question.prototype.checkAnswer = function(answer){
 
 let questions = [
     new Question("1-Which is a JavaScript package management application?", { a: "Node.js", b: "Typescript", c: "Npm"}, "c"),
-    new Question("2-Which is a JavaScript package management application?", { a: "Node.js", b: "Typescript", c: "Npm"}, "c"),
+    new Question("2-Which is a avaScript package management application?", { a: "Node.js", b: "Typescript", c: "Npm"}, "c"),
     new Question("3-Which is a JavaScript package management application?", { a: "Node.js", b: "Typescript", c: "Npm"}, "c")
 ]
 
@@ -29,19 +32,49 @@ Quiz.prototype.getQuestion = function(){
 
 const quiz = new Quiz(questions);
 
-// start quiz
-btnStart.addEventListener("click", function(){
-    if(quiz.questions.length != quiz.questionIndex){
-        quizBox.classList.add("active");
-        console.log(quiz.getQuestion());
+// Start quiz
+function startQuiz(){
+    if(quiz.questions.length != quiz.questionIndex + 1){
         quiz.questionIndex += 1;
+        showQuestion(quiz.getQuestion());
     } else{
         console.log("You have completed Quiz!");
     }
-})
+}
 
-// end quiz
-btnClose.addEventListener("click", function(){
+// End quiz
+function endQuiz(){
     quizBox.classList.remove("active");
     quiz.questionIndex = 0;
-})
+}
+
+// Start quiz button
+btnStart.addEventListener("click", function(){
+    quizBox.classList.add("active");
+    showQuestion(quiz.getQuestion());
+});
+
+// X button
+btnClose.addEventListener("click", endQuiz);
+
+// Next question 
+btnNext.addEventListener("click", startQuiz);
+
+
+// Show question
+function showQuestion(question){
+    let q = `<span>${question.questionText}</span>`;
+    let options = '';
+
+    for(let answer in question.questionAnswers){
+        options += 
+            `
+            <div class="option">
+                <span><b>${answer}</b>: ${question.questionAnswers[answer]}</span>
+            </div>
+            `;
+    }   
+
+    questionText.innerHTML = q;
+    optionList.innerHTML = options;
+}
