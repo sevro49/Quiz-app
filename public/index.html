@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/main.css">
+        <title>Quiz App</title>
+</head>
+
+<body>
+    <div class="btn_start">
+        <button class="btn btn-warning btn-large">Start Quiz</button>
+    </div>
+
+    <div class="card quiz_box ">
+        <header class="card-header">
+            <div class="title">Quiz App</div>
+            <button class="x_mark"><i class="fa-solid fa-x"></i></button>
+        </header>
+        <section class="card-body">
+            <div class="question_text">
+                <span>Which is a JavaScript package management application?</span>
+            </div>
+            <div class="option_list">
+                <div class="option ">
+                    <span>a: Node.js</span>
+                    <div class="icon"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="option ">
+                    <span>b: Typescript</span>
+                    <div class="icon"><i class="fas fa-times"></i></div>
+                </div>
+                <div class="option correct">
+                    <span>c: npm</span>
+                    <div class="icon"><i class="fas fa-times"></i></div>
+                </div>
+                <div class="option incorrect">
+                    <span>d: nuget</span>
+                    <div class="icon"><i class="fas fa-times"></i></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
