@@ -1,13 +1,11 @@
 const btnStart = document.querySelector(".btn_start");
 const quizBox = document.querySelector(".quiz_box");
-const closeQuiz = document.querySelector(".x_mark")
+const btnClose = document.querySelector(".btn_close")
 
 function Question(questionText, questionAnswers, correctAnswer) {
     this.questionText = questionText;
     this.questionAnswers = questionAnswers;
     this.correctAnswer = correctAnswer;
-
-    // represents every object created from Question
 }
 
 Question.prototype.checkAnswer = function(answer){
@@ -31,7 +29,7 @@ Quiz.prototype.getQuestion = function(){
 
 const quiz = new Quiz(questions);
 
-
+// start quiz
 btnStart.addEventListener("click", function(){
     if(quiz.questions.length != quiz.questionIndex){
         quizBox.classList.add("active");
@@ -42,9 +40,8 @@ btnStart.addEventListener("click", function(){
     }
 })
 
-closeQuiz.addEventListener("click", function(){
+// end quiz
+btnClose.addEventListener("click", function(){
     quizBox.classList.remove("active");
     quiz.questionIndex = 0;
 })
-
-
