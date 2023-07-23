@@ -77,6 +77,24 @@
                 color: #721C24;
                 background: #F8D7DA;
             }
+
+            &.disabled{
+                pointer-events: none;
+            }
+        }
+    }
+
+    .next_btn{
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(.9);
+        transition: all .2s ease;
+
+        &.show{
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1);
+
         }
     }
 }
