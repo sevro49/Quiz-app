@@ -84,17 +84,31 @@
         }
     }
 
-    .next_btn{
-        opacity: 0;
-        pointer-events: none;
-        transform: scale(.9);
-        transition: all .2s ease;
+    .card-footer{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-        &.show{
-            opacity: 1;
-            pointer-events: auto;
-            transform: scale(1);
+        .question_index{
 
+            .badge{
+                font-size: 15px;
+            }
         }
+
+        .next_btn{
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(.9);
+            transition: all .2s ease;
+    
+            &.show{
+                opacity: 1;
+                pointer-events: auto;
+                transform: scale(1);
+    
+            }
+        }
+
     }
 }
