@@ -1,4 +1,6 @@
-.btn_start, .quiz_box{
+.btn_start, 
+.quiz_box, 
+.score_box{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -110,5 +112,35 @@
             }
         }
 
+    }
+}
+
+.score_box{
+    width: 550px;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(.7);
+    transition: all .3s ease;
+
+    &.active{
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, -50%) scale(1);
+
+    }
+
+    .icon{
+        font-size: 90px;
+        color: #007BFF;
+        margin-bottom: 10px;
+    }
+
+    .score_text{
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 10px;
     }
 }

@@ -15,10 +15,13 @@
 </head>
 
 <body>
+
+    <!-- Start Quiz button -->
     <div class="btn_start">
         <button class="btn btn-warning btn-large">Start Quiz</button>
     </div>
 
+    <!-- Question Card -->
     <div class="card quiz_box ">
         <header class="card-header">
             <div class="title">Quiz App</div>
@@ -37,6 +40,15 @@
             </div>
             <button class="next_btn btn btn-primary btn-sm">Next Question</button>
         </footer>
+    </div>
+
+    <div class="card score_box">
+        <div class="icon"><i class="fas fa-crown"></i></div>
+        <div class="score_text"></div>
+        <div class="buttons">
+            <button class="btn btn-primary btn_replay">Replay Quiz</button>
+            <button class="btn btn-primary btn_quit">End Quiz</button>
+        </div>
     </div>
 
     <script src="js/question.js"></script>
