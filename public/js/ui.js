@@ -45,6 +45,7 @@ function showQuestionNumber(questionOrder, totalQuestions){
     questionNumber.innerHTML = tag;
 }
 
+// Shows score end of the quiz
 function showScore(totalQuestions, correctAnswer){
     let tag = `You gave ${correctAnswer} correct answers out of ${totalQuestions} questions in total.`;
     scoreText.innerHTML = tag;
