@@ -11,6 +11,9 @@ const correctIcon = '<div class="icon"><i class="fas fa-check"></i></div>';
 const incorrectIcon = '<div class="icon"><i class="fas fa-times"></i></div>';
 const questionNumber = document.querySelector(".quiz_box .question_index");
 const scoreText = document.querySelector(".score_box .score_text");
+const timeText = document.querySelector(".time_text");
+const timeSecond = document.querySelector(".time_second");
+
 
 // Show question
 function showQuestion(question){

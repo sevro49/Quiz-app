@@ -1,14 +1,18 @@
 const quiz = new Quiz(questions);
+let counter;
 
 // Start quiz
 function startQuiz(){
     if(quiz.questions.length != quiz.questionIndex + 1){
         quiz.questionIndex += 1;
+        clearInterval(counter);
+        startTimer(10);
         showQuestion(quiz.getQuestion());
         showQuestionNumber(quiz.questionIndex + 1, quiz.questions.length);
         btnNext.classList.remove("show");
     } else{
         console.log("You have completed Quiz!");
+        clearInterval(counter);
         scoreBox.classList.add("active");
         quizBox.classList.remove("active");
         showScore(quiz.questions.length, quiz.numberOfCorrectAnswers);
@@ -24,6 +28,7 @@ function endQuiz(){
 // Start quiz button
 btnStart.addEventListener("click", function(){
     quizBox.classList.add("active");
+    startTimer(10);
     showQuestion(quiz.getQuestion());
     showQuestionNumber(quiz.questionIndex + 1, quiz.questions.length);
     btnNext.classList.remove("show");
@@ -50,6 +55,7 @@ btnReplay.addEventListener("click", function(){
 
 // to mark selected options according to their correctness
 function optionSelected(option){
+    clearInterval(counter);
     let answer = option.querySelector("span b").textContent;
     let question = quiz.getQuestion();
 
@@ -68,4 +74,31 @@ function optionSelected(option){
     }
 
     btnNext.classList.add("show");
+}
+
+// Starts timer
+function startTimer(time){
+    
+    counter = setInterval(timer, 1000);
+
+    function timer(){
+        timeSecond.textContent = time;
+        time--;
+
+        if(time < 0){
+            clearInterval(counter);
+            timeText.textContent = "Time is out";
+            let answer = quiz.getQuestion().correctAnswer;
+
+            for(let option of optionList.children){
+                if(option.querySelector("span b").textContent == answer){
+                    option.classList.add("correct");
+                    option.insertAdjacentHTML("beforeend", correctIcon);
+                }
+                option.classList.add("disabled");
+            }
+            
+            btnNext.classList.add("show");
+        }
+    }
 }
