@@ -13,6 +13,7 @@ const questionNumber = document.querySelector(".quiz_box .question_index");
 const scoreText = document.querySelector(".score_box .score_text");
 const timeText = document.querySelector(".time_text");
 const timeSecond = document.querySelector(".time_second");
+const timeLine = document.querySelector(".time_line");
 
 
 // Show question
